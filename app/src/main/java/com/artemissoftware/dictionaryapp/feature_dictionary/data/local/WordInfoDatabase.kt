@@ -9,7 +9,7 @@ import com.artemissoftware.dictionaryapp.feature_dictionary.data.local.entities.
     entities = [WordInfoEntity::class],
     version = 1
 )
-//--@TypeConverters(Converters::class)
+@TypeConverters(Converters::class)
 abstract class WordInfoDatabase: RoomDatabase() {
 
     abstract val dao: WordInfoDao
