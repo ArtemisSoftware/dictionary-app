@@ -6,7 +6,7 @@ import com.artemissoftware.dictionaryapp.feature_dictionary.domain.repository.Wo
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
-class GetWordsInfo(
+class GetWordInfo(
     private val repository: WordInfoRepository
 ) {
 
