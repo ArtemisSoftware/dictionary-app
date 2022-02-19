@@ -10,10 +10,7 @@ import com.artemissoftware.dictionaryapp.feature_dictionary.domain.usecases.GetW
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.flow.asSharedFlow
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -30,7 +27,7 @@ class WordInfoViewModel @Inject constructor(
     val state: State<WordInfoState> = _state
 
     private val _eventFlow = MutableSharedFlow<UIEvent>()
-    val eventFlow = _eventFlow.asSharedFlow()
+    val eventFlow: SharedFlow<UIEvent> = _eventFlow.asSharedFlow()
 
     private var searchJob: Job? = null
 
