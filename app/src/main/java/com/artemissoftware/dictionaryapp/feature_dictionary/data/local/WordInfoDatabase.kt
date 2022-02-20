@@ -12,5 +12,5 @@ import com.artemissoftware.dictionaryapp.feature_dictionary.data.local.entities.
 @TypeConverters(Converters::class)
 abstract class WordInfoDatabase: RoomDatabase() {
 
-    abstract val dao: WordInfoDao
+    abstract val wordDao: WordInfoDao
 }
