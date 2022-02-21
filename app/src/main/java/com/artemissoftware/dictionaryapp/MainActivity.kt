@@ -8,6 +8,7 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import com.artemissoftware.dictionaryapp.feature_dictionary.presentation.DictionaryScreen
 import com.artemissoftware.dictionaryapp.ui.theme.DIctionaryAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -17,10 +18,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             DIctionaryAppTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(color = MaterialTheme.colors.background) {
-                    Greeting("Android")
-                }
+                DictionaryScreen()
             }
         }
     }
