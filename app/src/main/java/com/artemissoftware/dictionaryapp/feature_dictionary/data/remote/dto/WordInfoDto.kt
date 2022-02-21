@@ -5,16 +5,16 @@ import com.artemissoftware.dictionaryapp.feature_dictionary.domain.models.WordIn
 
 data class WordInfoDto(
     val meanings: List<MeaningDto>,
-    val origin: String, //can be null
-    val phonetic: String,
+    val origin: String?, //can be null
+    val phonetic: String?,
     val phonetics: List<PhoneticDto>,
     val word: String
 ) {
     fun toWordInfoEntity(): WordInfoEntity {
         return WordInfoEntity(
             meanings = meanings.map { it.toMeaning() },
-            origin = origin,
-            phonetic = phonetic,
+            origin = origin ?: "",
+            phonetic = phonetic ?: "",
             word = word
         )
     }
