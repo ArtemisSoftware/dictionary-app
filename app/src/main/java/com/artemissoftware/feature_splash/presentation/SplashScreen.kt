@@ -23,7 +23,7 @@ import kotlinx.coroutines.delay
 
 @Composable
 fun SplashScreen(
-    navController:  NavHostController
+    navController: NavHostController
 ){
 
     val scale = remember {

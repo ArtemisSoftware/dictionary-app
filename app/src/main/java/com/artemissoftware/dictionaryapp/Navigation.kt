@@ -21,10 +21,11 @@ fun Navigation() {
             SplashScreen(navController = navController)
         }
         composable(Screen.DictionaryScreen.route) {
-            //DictionaryScreen()
+            DictionaryScreen(navController = navController)
+        }
+        composable(Screen.CachedWordsScreen.route) {
             CachedWordsScreen()
         }
-
 
     }
 }
