@@ -7,6 +7,7 @@ import com.artemissoftware.dictionaryapp.feature_dictionary.domain.models.WordIn
 import com.artemissoftware.dictionaryapp.feature_dictionary.domain.repository.WordInfoRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.map
 import okio.IOException
 import retrofit2.HttpException
 
@@ -43,5 +44,13 @@ class WordInfoRepositoryImpl(
 
         val newWordInfos = dao.getWordInfos(word).map { it.toWordInfo() }
         emit(Resource.Success(newWordInfos))
+    }
+
+    override fun getCachedWords(): Flow<Resource<List<WordInfo>>>  = flow{
+
+        emit(Resource.Loading())
+        val words = dao.getCachedWords().map { it.toWordInfo() }
+        emit(Resource.Success(words))
+
     }
 }

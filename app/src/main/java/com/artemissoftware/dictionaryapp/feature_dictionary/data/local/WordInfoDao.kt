@@ -5,6 +5,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.artemissoftware.dictionaryapp.feature_dictionary.data.local.entities.WordInfoEntity
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface WordInfoDao {
@@ -17,4 +18,7 @@ interface WordInfoDao {
 
     @Query("SELECT * FROM wordinfoentity WHERE word LIKE '%' || :word || '%'")
     suspend fun getWordInfos(word: String): List<WordInfoEntity>
+
+    @Query("SELECT * FROM wordinfoentity ORDER BY word ASC ")
+    suspend fun getCachedWords(): List<WordInfoEntity>
 }

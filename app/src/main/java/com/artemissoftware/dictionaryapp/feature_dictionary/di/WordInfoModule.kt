@@ -8,6 +8,7 @@ import com.artemissoftware.dictionaryapp.feature_dictionary.data.remote.Dictiona
 import com.artemissoftware.dictionaryapp.feature_dictionary.data.repository.WordInfoRepositoryImpl
 import com.artemissoftware.dictionaryapp.feature_dictionary.data.util.GsonParser
 import com.artemissoftware.dictionaryapp.feature_dictionary.domain.repository.WordInfoRepository
+import com.artemissoftware.dictionaryapp.feature_dictionary.domain.usecases.GetCachedWordInfo
 import com.artemissoftware.dictionaryapp.feature_dictionary.domain.usecases.GetWordInfo
 import com.google.gson.Gson
 import dagger.Module
@@ -60,6 +61,10 @@ object WordInfoModule {
     }
 
 
-
+    @Provides
+    @Singleton
+    fun provideGetCachedWordInfoUseCase(repository: WordInfoRepository): GetCachedWordInfo {
+        return GetCachedWordInfo(repository)
+    }
 
 }
